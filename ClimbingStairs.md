@@ -43,13 +43,13 @@ Space: O(n)
 ## Recursion Tree
 
 For n = 4:
-ways(4)
- / \
-ways(3) ways(2)
- / \ / \
-ways(2) ways(1) ways(1) ways(0)
- / \
-ways(1) ways(0)
+                  ways(4)
+                 /       \
+             ways(3)    ways(2)
+             /    \      /   \
+         ways(2) ways(1) ways(1) ways(0)
+          /   \
+      ways(1) ways(0)
 
 ### Observation
 ways(2) and ways(1) are calculated more than once.
