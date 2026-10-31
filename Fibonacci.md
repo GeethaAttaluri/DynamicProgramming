@@ -1,40 +1,44 @@
-**Problem Analysis**
+# Fibonacci DP Notes
 
-**PROBLEM**
-Given n, return the nth Fibonacci number. Sequence: 0, 1, 1, 2, 3, 5, 8...
+## Problem Analysis
 
-**RECOGNITION**
-Current answer depends on the previous two answers.
+### Problem
+- Given n, return the nth Fibonacci number.
+- Sequence: 0, 1, 1, 2, 3, 5, 8, ...
 
-**STATE**
-dp[i] = Fibonacci number at position i.
+### Recognition
+- The current answer depends on the previous two answers.
 
-**CHOICES**
-Calculate F(n-1) and F(n-2).
+### State
+- dp[i] = Fibonacci number at position i.
 
-**RECURRENCE**
-F(n) = F(n-1) + F(n-2)
+### Choices
+- Calculate F(n-1)
+- Calculate F(n-2)
 
-**RECURSION TREE**
-F(5) → F(4) + F(3)
-F(4) → F(3) + F(2)
+### Recurrence
+- F(n) = F(n-1) + F(n-2)
 
-**OVERLAPPING**
-F(3) and F(2) are calculated multiple times.
+### Recursion Tree
+- F(5) → F(4) + F(3)
+- F(4) → F(3) + F(2)
 
-**BASE CASE**
-F(0) = 0
-F(1) = 1
+### Overlapping Subproblems
+- F(3) and F(2) are calculated multiple times.
 
-**COMPLEXITY**
-RECURSION TIME: O(2^n)
-RECURSION SPACE: O(n)
-MEMOIZATION TIME: O(n)
-MEMOIZATION SPACE: O(n)
-TABULATION TIME: O(n)
-TABULATION SPACE: O(n)
+### Base Case
+- F(0) = 0
+- F(1) = 1
 
-**Python Recursion**
+## Time and Space Complexity
+- Recursion Time: O(2^n)
+- Recursion Space: O(n)
+- Memoization Time: O(n)
+- Memoization Space: O(n)
+- Tabulation Time: O(n)
+- Tabulation Space: O(n)
+
+## Python Recursion
 
 ```python
 def fib(n):
@@ -44,7 +48,7 @@ def fib(n):
     return fib(n - 1) + fib(n - 2)
 ```
 
-**Python Tabulation**
+## Python Tabulation
 
 ```python
 def fib(n):
@@ -52,7 +56,6 @@ def fib(n):
         return n
 
     dp = [0] * (n + 1)
-
     dp[0] = 0
     dp[1] = 1
 
@@ -62,13 +65,13 @@ def fib(n):
     return dp[n]
 ```
 
-**One-dimensional DP**
-One changing variable (n)
-Two previous states
-Repeated calculations
-Bottom-up table filling
+## One-Dimensional DP
+- One changing variable: n
+- Two previous states are used
+- Repeated calculations are avoided
+- Bottom-up table filling is used
 
-**Python Memoization**
+## Python Memoization
 
 ```python
 def fib(n):
@@ -82,7 +85,6 @@ def fib(n):
             return memo[n]
 
         memo[n] = helper(n - 1) + helper(n - 2)
-
         return memo[n]
 
     return helper(n)
