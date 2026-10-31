@@ -1,39 +1,52 @@
 **Problem Analysis**
 
-**PROBLEM	**
+**PROBLEM**
 Given n, return the nth Fibonacci number. Sequence: 0, 1, 1, 2, 3, 5, 8...
-**RECOGNITION	**
+
+**RECOGNITION**
 Current answer depends on the previous two answers.
-**STATE	**
+
+**STATE**
 dp[i] = Fibonacci number at position i.
-CHOICES	Calculate F(n-1) and F(n-2).
-**RECURRENCE**	
+
+**CHOICES**
+Calculate F(n-1) and F(n-2).
+
+**RECURRENCE**
 F(n) = F(n-1) + F(n-2)
-**RECURSION TREE	**
-F(5) → F(4) + F(3); F(4) → F(3) + F(2)
-**OVERLAPPING	**
+
+**RECURSION TREE**
+F(5) → F(4) + F(3)
+F(4) → F(3) + F(2)
+
+**OVERLAPPING**
 F(3) and F(2) are calculated multiple times.
-**BASE CASE**	
-F(0) = 0, F(1) = 1.
 
-RECURSION TIME	O(2ⁿ)
-RECURSION SPACE	O(n)
-MEMOIZATION TIME	O(n)
-MEMOIZATION SPACE	O(n)
-TABULATION TIME	O(n)
-TABULATION SPACE	O(n)
+**BASE CASE**
+F(0) = 0
+F(1) = 1
 
+**COMPLEXITY**
+RECURSION TIME: O(2^n)
+RECURSION SPACE: O(n)
+MEMOIZATION TIME: O(n)
+MEMOIZATION SPACE: O(n)
+TABULATION TIME: O(n)
+TABULATION SPACE: O(n)
 
-**Python recusruion**
+**Python Recursion**
 
+```python
 def fib(n):
     if n <= 1:
         return n
 
     return fib(n - 1) + fib(n - 2)
+```
 
 **Python Tabulation**
 
+```python
 def fib(n):
     if n <= 1:
         return n
@@ -47,10 +60,17 @@ def fib(n):
         dp[i] = dp[i - 1] + dp[i - 2]
 
     return dp[n]
+```
 
-**    One-dimensional DP: One changing variable (n), two previous states, repeated calculations, and bottom-up table filling.
+**One-dimensional DP**
+One changing variable (n)
+Two previous states
+Repeated calculations
+Bottom-up table filling
+
 **Python Memoization**
 
+```python
 def fib(n):
     memo = {}
 
@@ -66,3 +86,4 @@ def fib(n):
         return memo[n]
 
     return helper(n)
+```
