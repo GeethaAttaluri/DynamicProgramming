@@ -1,14 +1,21 @@
 **Problem Analysis**
 
-
-PROBLEM	Given n, return the nth Fibonacci number. Sequence: 0, 1, 1, 2, 3, 5, 8...
-RECOGNITION	Current answer depends on the previous two answers.
-STATE	dp[i] = Fibonacci number at position i.
+**PROBLEM	**
+Given n, return the nth Fibonacci number. Sequence: 0, 1, 1, 2, 3, 5, 8...
+**RECOGNITION	**
+Current answer depends on the previous two answers.
+**STATE	**
+dp[i] = Fibonacci number at position i.
 CHOICES	Calculate F(n-1) and F(n-2).
-RECURRENCE	F(n) = F(n-1) + F(n-2)
-RECURSION TREE	F(5) → F(4) + F(3); F(4) → F(3) + F(2)
-OVERLAPPING	F(3) and F(2) are calculated multiple times.
-BASE CASE	F(0) = 0, F(1) = 1.
+**RECURRENCE**	
+F(n) = F(n-1) + F(n-2)
+**RECURSION TREE	**
+F(5) → F(4) + F(3); F(4) → F(3) + F(2)
+**OVERLAPPING	**
+F(3) and F(2) are calculated multiple times.
+**BASE CASE**	
+F(0) = 0, F(1) = 1.
+
 RECURSION TIME	O(2ⁿ)
 RECURSION SPACE	O(n)
 MEMOIZATION TIME	O(n)
